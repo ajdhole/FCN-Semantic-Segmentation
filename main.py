@@ -10,9 +10,9 @@ import math
 
 _n_samples = 289
 _keep_probability_value = 0.9
-_learning_rate_value = 0.001
-_epochs = 1
-_batch_size = 10
+_learning_rate_value = 0.0001
+_epochs = 5
+_batch_size = 5
 
 # Check TensorFlow Version
 assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), \
@@ -197,7 +197,6 @@ def run():
             f.write('epochs={}\n'.format(_epochs))
             f.write('lr={}\n'.format(_learning_rate_value))
             f.write('n_samples={}\n'.format(_n_samples))
-            f.write('final_loss={}\n'.format(final_loss))
             #f.write('n_samples={}'.format(_))
 
         # save model
