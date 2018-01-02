@@ -9,10 +9,12 @@ from tqdm import tqdm
 import math
 
 _n_samples = 289
-_keep_probability_value = 0.9
+_keep_probability_value = 0.7
 _learning_rate_value = 0.0001
-_epochs = 5
-_batch_size = 5
+_gpu_count = 1
+_gpu_mem_fraction = 0.9
+_epochs = 10
+_batch_size = 10
 
 # Check TensorFlow Version
 assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), \
@@ -165,8 +167,10 @@ def run():
     helper.maybe_download_pretrained_vgg(data_dir)
     # TODO: Train and Inference on the cityscapes dataset instead of the Kitti dataset.
     #  https://www.cityscapes-dataset.com/
-
-    with tf.Session() as sess:
+    config = tf.ConfigProto(log_device_placement=False, device_count = {'GPU': _gpu_count})
+    config.gpu_options.allow_growth = True
+    config.gpu_options.per_process_gpu_memory_fraction = _gpu_mem_fraction
+    with tf.Session(config=config) as sess:
         # Path to vgg model
         vgg_path = os.path.join(data_dir, 'vgg')
         # Create function to get batches
@@ -195,6 +199,8 @@ def run():
             f.write('keep_prob={}\n'.format(_keep_probability_value))
             f.write('batch={}\n'.format(_batch_size))
             f.write('epochs={}\n'.format(_epochs))
+            f.write('use_gpu={}\n'.format(_gpu_count))
+            f.write('gpu_mem={}\n'.format(_gpu_mem_fraction))
             f.write('lr={}\n'.format(_learning_rate_value))
             f.write('n_samples={}\n'.format(_n_samples))
             #f.write('n_samples={}'.format(_))
