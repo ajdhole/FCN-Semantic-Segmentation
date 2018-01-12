@@ -8,13 +8,13 @@ import project_tests as tests
 from tqdm import tqdm
 import math
 
-_n_samples = 289
+_n_samples = 2
 _keep_probability_value = 0.7
 _learning_rate_value = 0.0001
 _gpu_count = 1
 _gpu_mem_fraction = 0.9
-_epochs = 10
-_batch_size = 10
+_epochs = 1
+_batch_size = 1
 
 # Check TensorFlow Version
 assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), \
