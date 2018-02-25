@@ -8,8 +8,9 @@ import project_tests as tests
 from tqdm import tqdm
 import math
 
-_n_samples = 5
-_keep_probability_value = 0.9
+
+_n_samples = 2
+_keep_probability_value = 0.7
 _learning_rate_value = 0.0001
 _gpu_count = 0
 _gpu_mem_fraction = 0.9
