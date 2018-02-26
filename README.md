@@ -29,19 +29,14 @@ The loss over epochs was 1.1
 Following images showing some of result of Semantic segmentations.
 
 [image0]: ./test_images/um_000015.png "Before Segmentation"
-
 [image1]: ./runs/um_000015.png "After Segmentation"
 [image2]: ./test_images/umm_000035.png "Before Segmentation"
-
 [image3]: ./runs/umm_000035.png "After Segmentation"
 [image4]: ./test_images/umm_000071.png "Before Segmentation"
-
 [image5]: ./runs/umm_000071.png "After Segmentation"
 [image6]: ./test_images/uu_000040.png "Before Segmentation"
-
 [image7]: ./runs/uu_000040.png "After Segmentation"
 [image8]: ./test_images/uu_000088.png "Before Segmentation"
-
 [image9]: ./runs/uu_000088.png "After Segmentation"
 
 ![alt text][image0] 
