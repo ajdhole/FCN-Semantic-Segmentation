@@ -1,6 +1,43 @@
-# Semantic Segmentation
+# Udacity Self Driving Car Nanodegree
+# Semantic Segmentation Project.
 ### Introduction
-In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
+In this project, We have label the pixels of a road in images using a Fully Convolutional Network (FCN). The goal of this project is to construct a fully convolutional neural network based on the VGG-16 image classifier architecture for performing semantic segmentation to identify drivable road area from an car dashcam image (trained and tested on the KITTI data set).
+
+### Training Parameter
+fowing hyperparameters are used to train model.
+
+_n_samples = 10
+
+_keep_probability_value = 0.7
+
+_learning_rate_value = 0.0001
+
+_gpu_count = 0
+
+_gpu_mem_fraction = 0.9
+
+_epochs = 25
+
+_batch_size = 5
+
+### Results
+
+The loss per batch achieved = 0.03.
+
+The loss over epochs was 1.1
+
+Following images showing some of result of Semantic segmentations.
+
+[image0]: ./test_images/um_000015.png "Before Segmentation"
+
+[image1]: ./runs/um_000015.png "After Segmentation"
+
+![alt text][image0] 
+![alt text][image1] 
+
+
+
+
 
 ### Setup
 ##### Frameworks and Packages
