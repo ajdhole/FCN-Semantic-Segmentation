@@ -8,14 +8,13 @@ import project_tests as tests
 from tqdm import tqdm
 import math
 
-
-_n_samples = 2
+_n_samples = 10
 _keep_probability_value = 0.7
 _learning_rate_value = 0.0001
 _gpu_count = 0
 _gpu_mem_fraction = 0.9
-_epochs = 1
-_batch_size = 1
+_epochs = 25
+_batch_size = 5
 
 # Check TensorFlow Version
 assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), \
@@ -151,11 +150,11 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         l /= _n_samples
         print("loss over epoch {}".format(l))
 
-        save_path = saver.save(sess, checkpoint_dir)  # , global_step=self._global_step)
-        print("checkpoint saved to {}".format(save_path))
+    save_path = saver.save(sess, checkpoint_dir)  # , global_step=self._global_step)
+    print("checkpoint saved to {}".format(save_path))
 
-        #tf.Print(tensor, [tf.shape(tensor)])
-        return l
+    #tf.Print(tensor, [tf.shape(tensor)])
+    return l
 
 def run():
     num_classes = 2
@@ -195,6 +194,7 @@ def run():
                  image_input, correct_label, keep_prob, learning_rate)
 
         # Save inference data using helper.save_inference_samples
+        # Save inference data using helper.save_inference_samples
         output_dir = helper.save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_prob, image_input)
         with open(os.path.join(output_dir, "params.txt"), "w") as f:
             f.write('keep_prob={}\n'.format(_keep_probability_value))
@@ -204,7 +204,9 @@ def run():
             f.write('gpu_mem={}\n'.format(_gpu_mem_fraction))
             f.write('lr={}\n'.format(_learning_rate_value))
             f.write('n_samples={}\n'.format(_n_samples))
+            f.write('final_loss={}\n'.format(final_loss))
             #f.write('n_samples={}'.format(_))
+
 
         # save model
         """ save trained model using SavedModelBuilder """
